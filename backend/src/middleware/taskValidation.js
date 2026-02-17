@@ -1,8 +1,7 @@
 import Joi from "joi";
 
-// ============================
-// Create Validation
-// ============================
+
+// For Create Validation
 export const validateCreateTask = (req, res, next) => {
   const schema = Joi.object({
     title: Joi.string().min(3).required(),
@@ -22,9 +21,7 @@ export const validateCreateTask = (req, res, next) => {
   next();
 };
 
-// ============================
-// Update Validation
-// ============================
+// For Update Validation
 export const validateUpdateTask = (req, res, next) => {
   const schema = Joi.object({
     title: Joi.string().min(3).optional(),
