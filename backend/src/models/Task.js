@@ -5,7 +5,7 @@ const taskSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      trim: true,
+      trim: true, // Automatically removes extra spaces from start and end.
     },
     description: {
       type: String,
@@ -16,7 +16,8 @@ const taskSchema = new mongoose.Schema(
       default: "pending",
     },
   },
-  { timestamps: true }
+  { timestamps: true } // This automatically adds:createdAt,updatedAt
+
 );
 
 export default mongoose.model("Task", taskSchema);

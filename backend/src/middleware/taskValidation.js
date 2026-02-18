@@ -9,7 +9,7 @@ export const validateCreateTask = (req, res, next) => {
     status: Joi.string().valid("pending", "completed").optional(),
   });
 
-  const { error } = schema.validate(req.body);
+  const { error } = schema.validate(req.body,{ abortEarly: false });
 
   if (error) {
     return res.status(400).json({
@@ -29,7 +29,7 @@ export const validateUpdateTask = (req, res, next) => {
     status: Joi.string().valid("pending", "completed").optional(),
   });
 
-  const { error } = schema.validate(req.body);
+  const { error } = schema.validate(req.body, { abortEarly: false });
 
   if (error) {
     return res.status(400).json({
